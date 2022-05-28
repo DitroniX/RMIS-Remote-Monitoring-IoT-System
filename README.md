@@ -28,4 +28,7 @@ Turbines
 
 ![Display-Type-B](https://ditronix.net/wp-content/uploads/2022/04/RMIS-12S-SDK-2204-106-PCB-Connections.jpg?raw=true)
 
+
 Further product and Wiki information maybe found on our website https://ditronix.net
+
+Tags: Charging, Current Monitoring, Discharging, ESP-12S, ESP8266, GB3FW, GB3JT, Home Automation, IoT, Power Consumption, Remote Monitoring, SDK, Solar, STEM, ThingSpeak, Voltage Monitoring, Wind
