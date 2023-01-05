@@ -1,5 +1,5 @@
 /*
-  Dave Williams, G8PUO, DitroniX 2019-2022 (ditronix.net)
+  Dave Williams, G8PUO, DitroniX 2019-2023 (ditronix.net)
   RMIS ESP6288 DC Remote Monitor IoT System ESP-12S SDK (Wifi Enabled, Domoticz Enabled)
   PCA v2204-106 - Test Code Firmware 1.220710 - 10th July 2022
 
@@ -9,8 +9,15 @@
   When a value changes on each channel a + is displayed at the end of the line and a batch Index to Domoticz is made.
   Should an error be encountered when posting an Index, the ESP will automatically reboot to re-initialise the connection.
 
-  The purpose of this test code is to cycle through the various main functions of the board as part of bring up testing.
-  Read data is compared and then only Indexd if changed.
+    The purpose of this test code is to cycle through the various main functions of the board as part of bring up testing.
+ 
+  This test code is OPEN SOURCE and formatted for easier viewing.  Although is is not intended for real world use, it may be freely used, or modified as needed.
+  It is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+  Further information, details and examples can be found on our website wiki pages ditronix.net/wiki and github.com/DitroniX
+
+
+  Read data is compared and then only Indexed if changed.
 
   // Domoticz Index Constants for Updating (If > 0 then will Index sensor)
   int Index_CH1_Voltage = 1;
@@ -23,10 +30,6 @@
   int Index_CH4_Current = 0; // Channel Ignored
   int Index_Temperature = 9;
   int Index_PCB_Voltage = 0; // Channel Ignored
-
-  This test code is OPEN SOURCE and although is not intended for real world use, it may be freely used, or modified as needed.
-
-  WIKI.  Please see https://ditronix.net/wiki/ for further information
 */
 
 #include "Arduino.h"
