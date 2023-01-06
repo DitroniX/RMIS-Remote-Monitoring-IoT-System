@@ -9,7 +9,7 @@
   When a value changes on each channel a + is displayed at the end of the line and a batch Index to Domoticz is made.
   Should an error be encountered when posting an Index, the ESP will automatically reboot to re-initialise the connection.
 
-    The purpose of this test code is to cycle through the various main functions of the board as part of bring up testing.
+  The purpose of this test code is to cycle through the various main functions of the board as part of bring up testing.
  
   This test code is OPEN SOURCE and formatted for easier viewing.  Although is is not intended for real world use, it may be freely used, or modified as needed.
   It is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,7 +19,7 @@
 
   Read data is compared and then only Indexed if changed.
 
-  // Domoticz Index Constants for Updating (If > 0 then will Index sensor)
+  Domoticz Index Constants for Updating (If > 0 then will Index sensor)
   int Index_CH1_Voltage = 1;
   int Index_CH1_Current = 0; // Channel Ignored
   int Index_CH2_Voltage = 3;
@@ -85,7 +85,7 @@ const char* domoticz_server = "0.0.0.0";  // IP Address
 int port = 8080;                                //Domoticz port
 
 // Domoticz Index Constants for Updating (If > 0 then will update sensor)
-// Set to desired index according to the Devices
+// Set 0 to desired IDX (index) according to the Devices created in Domoticz
 int Index_CH1_Voltage = 0;
 int Index_CH1_Current = 0;
 int Index_CH2_Voltage = 0;
@@ -187,14 +187,14 @@ void InitialiseTemperatureSensor() {
   {
     Serial.print("Connected to Digital Temperature Sensor MCP9808\t");
 
-    // Set Resolution 0.0625Â°C 250 ms and Wake Up
+    // Set Resolution 0.0625 °C 250 ms and Wake Up
     TempSensor.setResolution(3);
 
     // Read PCB_Temp Sensor and Output
     //TempSensor.wake(); // Wake Up
     SensorRAW = TempSensor.readTempC();
     Serial.print("Test PCB Temp: ");
-    Serial.print(SensorRAW); Serial.println("Â°C");
+    Serial.print(SensorRAW); Serial.println(" °C");
     //TempSensor.shutdown_wake(1); // Sleep Optional
   }
 }
@@ -282,7 +282,7 @@ void loop() {
   if (Index_CH1_Voltage > 0) {
     // Read Channel 1 Voltage 0-5V 0-1023 (Calibrated)
     SensorRAW = CalculateAverage(1);
-    SensorValue = ( SensorRAW * 152.82 ) / 1024;  //60=117.87.98  60=46.98
+    SensorValue = ( SensorRAW * 152.82 ) / 1024;  //30=117.87  60=46.98  Adjust these values, where needed
     dtostrf (SensorValue, 6, 2, SensorResult);
     sprintf (SensorResult, "%s", SensorResult);
     Serial.println(String (SensorResult) + "\t Voltage V (" + String(int(SensorRAW)) + ")\t Last_CH1_Voltage" + " #" + String(Index_CH1_Voltage));
@@ -308,7 +308,7 @@ void loop() {
   if (Index_CH2_Voltage > 0) {
     // Read Channel 2 Voltage 0-5V 0-1023 (Calibrated)
     SensorRAW = CalculateAverage(3);
-    SensorValue = ( SensorRAW * 152.40) / 1024;
+    SensorValue = ( SensorRAW * 152.40) / 1024;  //30=117.87  60=46.98  Adjust these values, where needed
     dtostrf (SensorValue, 6, 2, SensorResult);
     sprintf (SensorResult, "%s", SensorResult);
     Serial.println(String (SensorResult) + "\t Voltage V (" + String(int(SensorRAW)) + ")\t Last_CH2_Voltage" + " #" + String(Index_CH2_Voltage));
@@ -334,7 +334,7 @@ void loop() {
   if (Index_CH3_Voltage > 0) {
     // Read Channel 3 Voltage 0-5V 0-1023 (Calibrated)
     SensorRAW = CalculateAverage(5);
-    SensorValue = ( SensorRAW * 117.87 ) / 1024; 
+    SensorValue = ( SensorRAW * 117.87 ) / 1024;   //30=117.87  60=46.98  Adjust these values, where needed
     dtostrf (SensorValue, 6, 2, SensorResult);
     sprintf (SensorResult, "%s", SensorResult);
     Serial.println(String (SensorResult) + "\t Voltage V (" + String(int(SensorRAW)) + ")\t Last_CH3_Voltage" + " #" + String(Index_CH3_Voltage));
@@ -360,7 +360,7 @@ void loop() {
   if (Index_CH4_Voltage > 0) {
     // Read Channel 4 Voltage 0-5V 0-1023 (Calibrated)
     SensorRAW = CalculateAverage(7);
-    SensorValue = ( SensorRAW * 117.87 ) / 1024; 
+    SensorValue = ( SensorRAW * 117.87 ) / 1024;   //30=117.87  60=46.98  Adjust these values, where needed
     dtostrf (SensorValue, 6, 2, SensorResult);
     sprintf (SensorResult, "%s", SensorResult);
     Serial.println(String (SensorResult) + "\t Voltage V (" + String(int(SensorRAW)) + ")\t Last_CH4_Voltage" + " #" + String(Index_CH4_Voltage));
