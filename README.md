@@ -1,5 +1,7 @@
 ## RMIS (Remote Monitoring IoT System - 4 Channel) SDK
 
+UPDATE: 20th April 2026.  This evaluation board is no longer supported.
+
 RMIS (Remote Monitoring IoT System)  Max 60V @ 30A 4 Channel)
 
 Ideal for remote monitoring DC Voltage and Current of:
